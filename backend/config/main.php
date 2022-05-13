@@ -56,13 +56,13 @@ return [
             'class' => 'yii\rbac\DbManager',
             'defaultRoles' => ['guest'],
         ],
-        'view' => [
-            'theme' => [
-                'pathMap' => [
-                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
-                ],
-            ],
-        ],
+//        'view' => [
+//            'theme' => [
+//                'pathMap' => [
+//                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+//                ],
+//            ],
+//        ],
 
     ],
     'as access' => [

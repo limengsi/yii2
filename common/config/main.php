@@ -1,7 +1,7 @@
 <?php
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'name'=>'李蒙思的YII项目',
+    'name'=>'火星救援--李蒙思',
     'defaultRoute'=>'site/index',
     'charset'=>'UTF-8',
     'language'=>'zh',
