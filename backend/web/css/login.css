@@ -11,9 +11,9 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width:400px;
+    width:500px;
     padding: 40px;
-    background:rgba(0,0,0,.8);
+    /*background:rgba(0,0,0,.8);*/
     box-sizing:border-box;
     box-shadow:0 15px 25px rgba(0,0,0,.5);
     border-radius: 10px;/*登录窗口边角圆滑*/
@@ -31,7 +31,9 @@ body{
 }
 .box .inputBox input
 {
-    width: 100%;
+    width: 80%;
+    display: block;
+    float: left;
     padding: 10px 0;
     font-side:16px;
     color: #fff;
@@ -44,7 +46,9 @@ body{
 }
 .box .inputBox label
 {
-    position: absolute;
+    width: 20%;
+    display: block;
+    float: left;
     top: 0;
     left: 0;
     padding: 10px 0;
@@ -71,4 +75,7 @@ body{
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+}
+.help-block{
+    color: red;
 }

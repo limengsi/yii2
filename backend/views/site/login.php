@@ -1,6 +1,7 @@
 <?php
 
-use yii\helpers\Html;
+use backend\assets\AppAsset;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 ?>
@@ -14,24 +15,35 @@ use yii\widgets\ActiveForm;
 <body>
 <div class="box">
     <h2>lims系统登录</h2>
-    <?php $from = ActiveForm::begin();?>
-    <?=$from->field($model,'username')?>
-    <?=$from->field($model,'password')?>
-    <div class="form-group">
-        <?=Html::submitButton('登录')?>
-    </div>
-    <?php ActiveForm::end();?>
-<!--    <form>-->
-<!--        <div class="inputBox">-->
-<!--            <input type="text" name="" required="">-->
-<!--            <label>用户名</label>-->
-<!--        </div>-->
-<!--        <div class="inputBox">-->
-<!--            <input type="password" name="" required="">-->
-<!--            <label>密码</label>-->
-<!--        </div>-->
-<!--        <input type="submit" name="" value="登录">-->
-<!--    </form>-->
+    <?php
+    $from = ActiveForm::begin([
+            'id'=>'login',
+            'method'=>'post',
+            'action'=>Url::toRoute(''),
+    ]);
+    echo $from->field($model,'username',['options'=>['class'=>'inputBox']])->textInput(['placeholder'=>'','id'=>'username','onkeyup'=>'next(event)','maxlength'=>10]),
+    $from->field($model,'password',['options'=>['class'=>'inputBox']])->textInput(['placeholder'=>'','id'=>'password','onkeyup'=>'submits()','maxlength'=>10]);
+    ActiveForm::end();
+    ?>
 </div>
+<script type="text/javascript">
+    window.onload=function(){
+        document.getElementById('username').focus();
+    }
+    function next(event){
+        if(event.keyCode !== 13){
+            return false;
+        }
+        if(document.getElementById('username').value){
+            document.getElementById('password').focus();
+        }
+    }
+
+    function submits(){
+        if(document.getElementById('password').value){
+            document.getElementById('login').submit();
+        }
+    }
+</script>
 </body>
 </html>

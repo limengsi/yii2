@@ -64,6 +64,13 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    function leecode()
+    {
+        $stickers = ["with", "example", "science"];
+        $target = 'thehat';
+        $targes = '';
+    }
+
     /**
      * Login action.
      *
@@ -71,6 +78,10 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+
+        $this->leecode();
+
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
