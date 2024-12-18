@@ -1,10 +1,10 @@
 <?php
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'name'=>'火星救援--李蒙思',
+    'name'=>'火星救援',
     'defaultRoute'=>'site/index',
     'charset'=>'UTF-8',
-    'language'=>'zh',
+    'language'=>'zh_cn',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -19,7 +19,10 @@ return [
             ],
         ],
     ],
-
+    'aliases' => [
+        //composer安装后路径不对，调整一下路径
+        '@bower' => '@vendor/bower-asset',
+    ],
     'on beforeRequest'=>function($event){
     }
 ];

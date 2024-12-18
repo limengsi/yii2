@@ -19,6 +19,11 @@ return [
     ],
      'aliases' => [
          '@mdm/admin' => '@vendor/mdmsoft/yii2-admin',
+
+         //composer安装后路径不对，调整一下路径
+         '@bower' => '@vendor/bower-asset',
+         '@yii/gii/assets' => '@vendor/yiisoft/yii2-gii/src/assets',
+         '@yii/gii/views' => '@vendor/yiisoft/yii2-gii/src/views',
      ],
     'components' => [
         'request' => [
