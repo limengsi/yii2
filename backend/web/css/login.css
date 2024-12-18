@@ -25,9 +25,10 @@ body{
     color:#fff;
     text-align:center;
 }
-.box .inputBox
+#loginform-verifycode
 {
-    position:relative;
+    width: calc(80% - 120px);
+    margin-bottom: 0;
 }
 .box .inputBox input
 {
@@ -77,5 +78,13 @@ body{
     border-radius: 5px;
 }
 .help-block{
+    margin-left: 20%;
     color: red;
+}
+.login_submit{
+    width: 100%;
+    margin-top: 10px;
+}
+.field-loginform-verifycode .help-block{
+    margin-top: 30px;
 }

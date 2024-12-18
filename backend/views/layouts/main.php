@@ -28,14 +28,24 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => '首页', 'url' => ['/site/index']],
+        [
+            'label' => '我的账号',
+            'items' => [
+                ['label' => '个人信息', 'url' => '#'],
+                '<li class="divider"></li>',
+//                '<li class="dropdown-header">Dropdown Header</li>',
+                ['label' => '发送邮件', 'url' => ['/email/send']],
+            ],
+        ],
+        ['label' => '发送邮件', 'url' => ['/site/index']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
@@ -43,8 +53,8 @@ AppAsset::register($this);
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
+                '退出 (' . Yii::$app->user->identity->username . ')',
+                ['class' => 'btn btn-link logout glyphicon glyphicon-log-out']
             )
             . Html::endForm()
             . '</li>';

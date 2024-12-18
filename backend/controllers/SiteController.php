@@ -6,7 +6,7 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
+use backend\models\LoginForm;
 
 /**
  * Site controller
@@ -23,7 +23,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error','captcha'],
                         'allow' => true,
                     ],
                     [
@@ -48,6 +48,16 @@ class SiteController extends Controller
     public function actions()
     {
         return [
+            'captcha'=>[
+                'class'=>'yii\captcha\CaptchaAction',
+                'minLength'=>4,
+                'maxLength'=>4,
+                'fixedVerifyCode'=> null,
+                'height'=>'36px',
+                'offset'=>'16',
+//                'width'=>'50px'
+//                'fixedVerifyCode'=>YII_DEBUG ? 'testme' : null,
+            ],
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
@@ -61,16 +71,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return "index";
         return $this->render('index');
     }
 
-    function leecode()
-    {
-        $stickers = ["with", "example", "science"];
-        $target = 'thehat';
-        $targes = '';
-    }
 
     /**
      * Login action.
@@ -79,18 +82,14 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-
-        $this->leecode();
-
-
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->goHome();
         } else {
-            $this->layout = false;
+            $this->layout = 'main-login';
             return $this->render('login', [
                 'model' => $model,
             ]);
