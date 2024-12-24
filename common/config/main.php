@@ -4,7 +4,7 @@ return [
     'name'=>'火星救援',
     'defaultRoute'=>'site/index',
     'charset'=>'UTF-8',
-    'language'=>'zh_cn',
+    'language'=>'zh-CN',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
