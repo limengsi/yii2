@@ -36,16 +36,16 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => '首页', 'url' => ['/site/index']],
+        ['label' => '邮件', 'url' => ['/email/index']],
         [
             'label' => '我的账号',
             'items' => [
                 ['label' => '个人信息', 'url' => '#'],
                 '<li class="divider"></li>',
 //                '<li class="dropdown-header">Dropdown Header</li>',
-                ['label' => '发送邮件', 'url' => ['/email/send']],
+                ['label' => '发送邮件', 'url' => '#'],
             ],
         ],
-        ['label' => '发送邮件', 'url' => ['/site/index']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
@@ -71,7 +71,7 @@ AppAsset::register($this);
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-        <!-- <?= $content ?> -->
+         <?= $content ?>
     </div>
 </div>
 
